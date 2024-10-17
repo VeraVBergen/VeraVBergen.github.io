@@ -20,7 +20,7 @@ li .menu {
     list-style-type: none;
 }
 
-li a {
+li a .menu {
     display: block;
     color: black;
     text-align: center;
@@ -28,10 +28,10 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+li a:hover .menu {
     background-color: #ffacc5;
 }
 
-p {
+p .menu {
     font-weight: 600;
 }
