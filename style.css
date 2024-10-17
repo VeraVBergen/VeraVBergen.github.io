@@ -38,6 +38,7 @@ p {
 
 button {
     background-color: #EA4C89;
+    margin: 5px;
     border-radius: 12px;
     color: #000;
     cursor: pointer;
@@ -45,7 +46,6 @@ button {
     padding: 10px 15px;
     text-align: center;
     transition: 200ms;
-    width: 100%;
     box-sizing: border-box;
     border: 0;
     font-size: 16px;
