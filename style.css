@@ -7,7 +7,7 @@ body {
     font-family: Montserrat;
 }
 
-ul .menu {
+ul.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -16,11 +16,11 @@ ul .menu {
     background-color: #ff5d8f;
 }
 
-li .menu {
+ul.menu li {
     list-style-type: none;
 }
 
-li a .menu {
+ul.menu li a {
     display: block;
     color: black;
     text-align: center;
@@ -28,7 +28,7 @@ li a .menu {
     text-decoration: none;
 }
 
-li a:hover .menu {
+ul.menu li a:hover {
     background-color: #ffacc5;
 }
 

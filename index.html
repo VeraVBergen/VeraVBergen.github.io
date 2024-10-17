@@ -10,10 +10,10 @@
 
 <body>
     <ul class="menu">
-        <li class="menu"><a class="menu" href="/">Home</a></li>
-        <li class="menu"><a class="menu" href="/binair">Binair Stelsel</a></li>
-        <li class="menu" style="margin-left:auto;"><a class="menu" href="https://tctam.nl">Tamer Zijn Site</a></li>
-    </ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/binair">Binair Stelsel</a></li>
+        <li style="margin-left:auto;"><a href="https://tctam.nl">Tamer Zijn Site</a></li>
+    </ul>    
 
     <h1 style="font-size: 3em;">Hi. Ik ben Vera!</h1>
     <p>Ik heb deze site gemaakt voor een informaticaproject op school.</p>
@@ -74,40 +74,45 @@
 
         /* about:blank tab */
         function openNewTab() {
-            var newTab = window.open('about:blank', '_blank');
-            var iframe = newTab.document.createElement('iframe');
-            iframe.src = '/';
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            newTab.document.body.appendChild(iframe);
+            var url = prompt('Voer de URL in die je in de iframe wilt openen:');
+            if (url !== null && url !== '') {
+                var newTab = window.open('about:blank', '_blank');
+                var iframe = newTab.document.createElement('iframe');
+                iframe.src = url; 
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                newTab.document.body.appendChild(iframe);
 
-            var link = newTab.document.createElement('link');
-            link.rel = 'icon';
-            link.type = 'image/x-icon';
-            link.href = '/assets/asfalt-light.png';
+                var link = newTab.document.createElement('link');
+                link.rel = 'icon';
+                link.type = 'image/x-icon';
+                link.href = '/assets/asfalt-light.png';
 
-            var head = newTab.document.head || newTab.document.getElementsByTagName('head')[0];
-            head.appendChild(link);
+                var head = newTab.document.head || newTab.document.getElementsByTagName('head')[0];
+                head.appendChild(link);
 
-            newTab.document.title = '‎';
-            newTab.document.body.style.overflow = 'hidden';
+                newTab.document.title = '‎';
+                newTab.document.body.style.overflow = 'hidden';
+            } else {
+                alert('Voer een geldige URL in.');
+            }
         };
 
-        /* about:blank tab */
         function openSecretTabFilling() {
+            var url = prompt('Voer de URL in die je in de iframe wilt openen:');
             var tabName = prompt('Voer de naam van het tabblad in:');
             var faviconLink = prompt('Voer de favicon-link in:');
-            openSecretTab(tabName, faviconLink);
+            openSecretTab(tabName, faviconLink, url);
         }
 
-        function openSecretTab(name, link) {
+        function openSecretTab(name, link, url) {
             var tabName = name;
             var faviconLink = link;
 
             if (tabName !== null && tabName !== '' && faviconLink !== null && faviconLink !== '') {
                 var newTab = window.open('about:blank', '_blank');
                 var iframe = newTab.document.createElement('iframe');
-                iframe.src = '/';
+                iframe.src = url; 
                 iframe.style.width = '100%';
                 iframe.style.height = '100%';
                 newTab.document.body.appendChild(iframe);
@@ -123,7 +128,7 @@
                 newTab.document.title = tabName;
                 newTab.document.body.style.overflow = 'hidden';
             } else {
-                notification('Tabbladnaam en/of favicon-link mogen niet leeg zijn.');
+                alert('Tabbladnaam en/of favicon-link mogen niet leeg zijn.');
             }
         }
     </script>
