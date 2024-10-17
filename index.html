@@ -9,15 +9,124 @@
 </head>
 
 <body>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/binair">Binair Stelsel</a></li>
-        <li style="margin-left:auto;"><a href="https://tctam.nl">Tamer Zijn Site</a></li>
+    <ul class="menu">
+        <li class="menu"><a href="/">Home</a></li>
+        <li class="menu"><a href="/binair">Binair Stelsel</a></li>
+        <li class="menu" style="margin-left:auto;"><a href="https://tctam.nl">Tamer Zijn Site</a></li>
     </ul>
 
     <h1 style="font-size: 3em;">Hi. Ik ben Vera!</h1>
     <p>Ik heb deze site gemaakt voor een informaticaproject op school.</p>
-    
+    <center><div style="width: 80%;">
+        <ol style="text-align: left;">
+            <li><strong>Stap 1 - Voorbereiden:</strong>
+                <ul>
+                    <li>Open het tabblad waar je eigenlijk op moet werken.</li>
+                    <li>Kopieer <code>https://[domein website waar je op moet werken]/favicon.ico</code> naar je
+                        klembord (ctrl + c).</li>
+                </ul>
+            </li>
+            <li><strong>Stap 2 - Uitvoeren:</strong>
+                <ul>
+                    <li>Klik op "Open Tab Met Eigen Naam En Favicon" en vul bij naam, de naam van het tabblad waar je
+                        eigenlijk op moet werken.</li>
+                    <li>Voer bij "Voer de favicon-link in" de gekopieerde link in.</li>
+                    <li>Ga 20 seconden op het tabblad waar je eigenlijk op moet werken en switch daarna in 1 keer naar
+                        het neppe tabblad.</li>
+                </ul>
+            </li>
+            <li><strong>Stap 3 - Genieten:</strong>
+                <ul>
+                    <li>Nu heb je een tabblad waarbij de docent het scherm van je vorige tabblad ziet, en de neppe naam
+                        van het huidige tabblad (die je moest invullen bij het maken van het neppe tabblad).</li>
+                </ul>
+            </li>
+        </ol>
+        <button style="font-size: 1.0em;" id="openNewTabBtn" onclick="openNewTab()">Open Blank Tab</button>
+        <button style="font-size: 1.0em;" id="openSecretTabBtn" onclick="openSecretTabFilling()">Open Tab Met Eigen Naam
+            En Favicon</button>
+    </div></center>
+
+    <script>
+        function checkUrlForFunctions() {
+            var currentUrl = window.location.href;
+
+            if (currentUrl.endsWith("?blank-tab-google")) {
+                openSecretTab('Google', 'https://google.com/favicon.ico');
+                setTimeout(() => {
+                    window.location.href = 'https://google.com'
+                }, "200");
+            }
+            if (currentUrl.endsWith("?blank-tab-cloudwise")) {
+                openSecretTab('Cloudwise - Vlietland College', 'https://cloudwise-portal.appspot.com/favicon.ico');
+                setTimeout(() => {
+                    window.location.href = 'https://google.com'
+                }, "200");
+            }
+            if (currentUrl.endsWith("?blank-tab")) {
+                openNewTab();
+            }
+            if (currentUrl.endsWith("?tctam-quiz")) {
+                openTctamQuizPopup();
+            }
+        }
+        // window.onload = checkUrlForFunctions;
+
+        /* about:blank tab */
+        function openNewTab() {
+            var newTab = window.open('about:blank', '_blank');
+            var iframe = newTab.document.createElement('iframe');
+            iframe.src = '/';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            newTab.document.body.appendChild(iframe);
+
+            var link = newTab.document.createElement('link');
+            link.rel = 'icon';
+            link.type = 'image/x-icon';
+            link.href = '/assets/asfalt-light.png';
+
+            var head = newTab.document.head || newTab.document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+
+            newTab.document.title = '‎';
+            newTab.document.body.style.overflow = 'hidden';
+        };
+
+        /* about:blank tab */
+        function openSecretTabFilling() {
+            var tabName = prompt('Voer de naam van het tabblad in:');
+            var faviconLink = prompt('Voer de favicon-link in:');
+            openSecretTab(tabName, faviconLink);
+        }
+
+        function openSecretTab(name, link) {
+            var tabName = name;
+            var faviconLink = link;
+
+            if (tabName !== null && tabName !== '' && faviconLink !== null && faviconLink !== '') {
+                var newTab = window.open('about:blank', '_blank');
+                var iframe = newTab.document.createElement('iframe');
+                iframe.src = '/';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                newTab.document.body.appendChild(iframe);
+
+                var link = newTab.document.createElement('link');
+                link.rel = 'icon';
+                link.type = 'image/x-icon';
+                link.href = faviconLink;
+
+                var head = newTab.document.head || newTab.document.getElementsByTagName('head')[0];
+                head.appendChild(link);
+
+                newTab.document.title = tabName;
+                newTab.document.body.style.overflow = 'hidden';
+            } else {
+                notification('Tabbladnaam en/of favicon-link mogen niet leeg zijn.');
+            }
+        }
+    </script>
 </body>
 
 </html>

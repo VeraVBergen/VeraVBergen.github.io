@@ -7,7 +7,7 @@ body {
     font-family: Montserrat;
 }
 
-ul {
+ul .menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ ul {
     background-color: #ff5d8f;
 }
 
-li {
+li .menu {
     list-style-type: none;
 }
 
