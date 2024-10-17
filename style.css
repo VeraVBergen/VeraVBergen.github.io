@@ -10,11 +10,15 @@ body {
 ul.menu {
     list-style-type: none;
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: space-between;
     background-color: #ff5d8f;
+    z-index: 1000;
 }
 
 ul.menu li {
@@ -53,17 +57,17 @@ button {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-  }
-  
-  button:not(:disabled):hover,
-  button:not(:disabled):focus {
+}
+
+button:not(:disabled):hover,
+button:not(:disabled):focus {
     outline: 0;
     background: #EA4C89;
-    box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
-  }
-  
-  button:disabled {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
+}
+
+button:disabled {
     filter: saturate(0.2) opacity(0.5);
     -webkit-filter: saturate(0.2) opacity(0.5);
     cursor: not-allowed;
-  }
+}
