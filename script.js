@@ -39,7 +39,4 @@ function addMenuItem(text, href) {
 // Menu aanmaken bij het laden van de pagina
 window.onload = () => {
     createMenu();
-
-    // Voeg hier nieuwe items toe aan het menu
-    addMenuItem('Nieuw Item', '/nieuw'); // Voorbeeld van een nieuw item
 };
